@@ -35,10 +35,16 @@ var BigNumber = require('bignumber.js');
 
 program
   .version('1.0.0')
+  .option('--config <config file>', 'config file')
   .option('--address <contract address>', 'contract address')
   .option('--abi <abi file>', 'abi file path')
   .option('--gas_limit <gas limit>', 'gas limit')
   .parse(process.argv);
+
+if (!(program.config)) {
+  console.log('miss config file')
+  process.exit();
+}
 
 if (!(program.address)) {
   console.log('miss contract address')
@@ -56,7 +62,7 @@ if (!(program.gas_limit)) {
 }
 // 准备命令行
 let getCmd = function(_methodName, _parameters, _gas_limit) {
-  let cmd = 'jcc_moac_tool --abi ' + program.abi;
+  let cmd = 'jcc_moac_tool --config ' + program.config + ' --abi ' + program.abi;
   cmd = cmd + ' --contractAddr "' + program.address + '" --method "' + _methodName + '"';
   if (!!_parameters) {
     cmd = cmd + ' --parameters \'' + _parameters + '\'';

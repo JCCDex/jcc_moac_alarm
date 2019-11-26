@@ -2,7 +2,7 @@
 
 jcc moac alarm 是一个朴素的预言机，就是一个定时执行驱动的合约，用来辅助业务合约的定时任务唤醒操作，任何人都能注册该服务，并充值方便自动驱动调用。
 
-主网合约地址: 0x1ff808d2e404530330f635f6502fdfe4a267ed91
+主网合约地址: 0xf28f3c6c6bd4911d9947c5dfea1c3b4cb09ea7d8
 
 测试网合约地址: 0xc87f0b41e26da5919837427e46eb8b2e683380e7
 
@@ -16,26 +16,26 @@ jcc moac alarm 是一个朴素的预言机，就是一个定时执行驱动的�
 
 ```bash
 # 添加服务的合约:只有注册的合约地址才能调用预言机创建定时任务
-jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0x1ff808d2e404530330f635f6502fdfe4a267ed91 --method "addClient" --parameters '"客户合约地址"' --gas_limit 80000
+jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0xf28f3c6c6bd4911d9947c5dfea1c3b4cb09ea7d8 --method "addClient" --parameters '"客户合约地址"' --gas_limit 80000
 
 # 删除服务的合约
-jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0x1ff808d2e404530330f635f6502fdfe4a267ed91 --method "removeClient" --parameters '"客户合约地址"' --gas_limit 100000
+jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0xf28f3c6c6bd4911d9947c5dfea1c3b4cb09ea7d8 --method "removeClient" --parameters '"客户合约地址"' --gas_limit 100000
 ```
 
 ```bash
 # 充值：朴素预言机发起定时调用前，一般和该合约关联的余额少于0.1MOAC则放弃调用
-jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0x1ff808d2e404530330f635f6502fdfe4a267ed91 --method "deposit" --parameters '"待充值的合约"' --amount 10 --gas_limit 150000
+jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0xf28f3c6c6bd4911d9947c5dfea1c3b4cb09ea7d8 --method "deposit" --parameters '"待充值的合约"' --amount 10 --gas_limit 150000
 ```
 
 ```bash
 # 查询指定合约的充值余额
-jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0x1ff808d2e404530330f635f6502fdfe4a267ed91 --method "balance" --parameters '"待服务的合约地址"'
+jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0xf28f3c6c6bd4911d9947c5dfea1c3b4cb09ea7d8 --method "balance" --parameters '"待服务的合约地址"'
 
 # 查询当前有多少个合约注册
-jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0x1ff808d2e404530330f635f6502fdfe4a267ed91 --method "getAlarmCount"
+jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0xf28f3c6c6bd4911d9947c5dfea1c3b4cb09ea7d8 --method "getAlarmCount"
 
 # 获取当前注册合约列表
-jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0x1ff808d2e404530330f635f6502fdfe4a267ed91 --method "getAlarmList" --parameters 'from, count'
+jcc_moac_tool --abi JccMoacAlarm.json --contractAddr 0xf28f3c6c6bd4911d9947c5dfea1c3b4cb09ea7d8 --method "getAlarmList" --parameters 'from, count'
 
 # 多签名钱包执行任务的注册（示例）
 jcc_moac_tool --abi JccMoacMultiSig.json --contractAddr "多签名钱包地址" --method "setAlarm" --parameters '"预言机合约地址",1,600' --gas_limit 200000
