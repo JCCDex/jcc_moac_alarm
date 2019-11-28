@@ -10,9 +10,7 @@
                        <div @click="switchTab('contractRegister')" :class="{ active: isActive===0 }" class="jcc-moac-alarm-home-tabs jcc-moac-alarm-home-tabs-left" style="float: left;">{{ $t("contract_register") }}</div>
                        <div @click="switchTab('moacDeposit')" :class="{ active: isActive===1}" class="jcc-moac-alarm-home-tabs jcc-moac-alarm-home-tabs-right" style="float: right;">{{ $t("moac_deposit") }}</div>
                      </div>
-                     <Scroll style="width:100%;">
-                     <component  :is="currentView" :isAdmin="admin"></component>
-                     </Scroll>
+                     <component style="width:100%;" :is="currentView" :isAdmin="admin"></component>
                    </div>
                     <div v-else flex="main:center cross:center dir:top" style="margin: 0.5rem 0.32rem 0 0.32rem;">
                     <div style="margin:0 auto;">{{ $t("moac_deposit") }}</div>
@@ -28,14 +26,12 @@
 <script>
 import contractRegister from "./alarm/contractRegister";
 import moacDeposit from "./alarm/moacDeposit";
-import scrollMixin from "@/mixins/scroll";
 export default {
   name: "Main",
   components: {
     contractRegister,
     moacDeposit
   },
-  mixins: [scrollMixin],
   data() {
     return {
       currentView: contractRegister,
