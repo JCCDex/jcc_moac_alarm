@@ -1,0 +1,61 @@
+@import "./mixin.scss";
+
+
+.van-icon-close:before {
+  content: "\F042" !important;
+  color: #CAD1E8;
+}
+
+.van-action-sheet {
+  color: #4C4F54 !important;
+}
+
+.van-cell {
+  height: 0.8rem !important;
+  border: 0.01rem solid #C5CDD2 !important;
+  border-radius: 0.08rem;
+  color: #B6B9BD;
+  @include px2px("font-size", 14);
+}
+
+.van-field__control,
+.van-cell__value--alone {
+  color: #B6B9BD !important;
+}
+
+.van-action-sheet__header {
+  line-height: 0.8rem !important;
+  @include px2px("font-size", 14);
+  border-bottom: 0.01rem solid #CAD1E8;
+
+  .van-action-sheet__close {
+    @include px2px("font-size", 15);
+  }
+}
+
+.van-action-sheet__content {
+  padding: 0.3rem;
+}
+
+.van-toast {
+  @include px2px("font-size", 14);
+  top: 50% !important;
+  width: 2rem !important;
+
+  .van-icon-success:before {
+    color: #11ce66;
+  }
+
+  .van-icon-fail:before {
+    color: #f37028;
+  }
+
+  .van-loading__spinner {
+    width: 0.3rem !important;
+    height: 0.3rem !important;
+  }
+
+  .van-toast__text {
+    line-height: 0.4rem;
+  }
+}

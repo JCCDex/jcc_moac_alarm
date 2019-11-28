@@ -1,0 +1,28 @@
+{
+  "moac": "MOAC",
+  "moac_wallet": "MOAC钱包：",
+  "contract_register": "合约地址登记",
+  "moac_deposit": "MOAC充值",
+  "input_contract_addr": "请输入合约地址",
+  "confirm_register": "确定登记",
+  "input_your_maoc_address": "请输入您的MOAC钱包地址",
+  "input_deposit_maoc_address": "请输入要充值的合约地址",
+  "your_wallet_balance": "您的钱包余额：{amount} {token}",
+  "contract_address_balance": "合约地址余额：{amount} {token}",
+  "input_deposit_amount": "请输入充值的数量",
+  "deposit": "充值",
+  "deposit_action": {
+    "button": "确认充值",
+    "content": "充值数量：{amount} {token}",
+    "title": "充值确认"
+  },
+  "message": {
+    "loading": "交易状态确认中...",
+    "register_loading": "登记状态确认中",
+    "submit_failed": "提交失败",
+    "submit_succeed": "提交成功",
+    "register_succeed": "合约登记成功",
+    "register_failed": "合约登记失败",
+    "request_receipt_failed": "请去区块浏览器确认交易是否成功"
+  }
+}

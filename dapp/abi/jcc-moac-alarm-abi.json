@@ -1,0 +1,390 @@
+[{
+    "constant": false,
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{
+      "name": "",
+      "type": "address"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+      "name": "newAdmin",
+      "type": "address"
+    }],
+    "name": "transferAdministrator",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+      "name": "newOwner",
+      "type": "address"
+    }],
+    "name": "transferOwnership",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "admin",
+    "outputs": [{
+      "name": "",
+      "type": "address"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "_contractAddr",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "Deposit",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "Withdraw",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "name": "_contractAddr",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "_origin",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "name": "_cost",
+        "type": "uint256"
+      }
+    ],
+    "name": "Balance",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "name": "contractAddr",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "_type",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "name": "_begin",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "_peroid",
+        "type": "uint256"
+      }
+    ],
+    "name": "CreateAlarm",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{
+      "indexed": true,
+      "name": "contractAddr",
+      "type": "address"
+    }],
+    "name": "RemoveAlarm",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "name": "contractAddr",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "time",
+        "type": "uint256"
+      }
+    ],
+    "name": "Alarm",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "name": "previousAdmin",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "newAdmin",
+        "type": "address"
+      }
+    ],
+    "name": "AdministratorTransferred",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+      "name": "_addr",
+      "type": "address"
+    }],
+    "name": "deposit",
+    "outputs": [{
+      "name": "",
+      "type": "uint256"
+    }],
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+      "name": "_amount",
+      "type": "uint256"
+    }],
+    "name": "withdraw",
+    "outputs": [],
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [{
+      "name": "_addr",
+      "type": "address"
+    }],
+    "name": "balance",
+    "outputs": [{
+      "name": "",
+      "type": "uint256"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+      "name": "_addr",
+      "type": "address"
+    }],
+    "name": "addContract",
+    "outputs": [{
+      "name": "",
+      "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+      "name": "_addr",
+      "type": "address"
+    }],
+    "name": "removeContract",
+    "outputs": [{
+      "name": "",
+      "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "name": "_type",
+        "type": "uint256"
+      },
+      {
+        "name": "_begin",
+        "type": "uint256"
+      },
+      {
+        "name": "_peroid",
+        "type": "uint256"
+      }
+    ],
+    "name": "createAlarm",
+    "outputs": [{
+      "name": "",
+      "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+      "name": "_addr",
+      "type": "address"
+    }],
+    "name": "removeAlarm",
+    "outputs": [{
+      "name": "",
+      "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getAlarmCount",
+    "outputs": [{
+      "name": "",
+      "type": "uint256"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [{
+        "name": "from",
+        "type": "uint256"
+      },
+      {
+        "name": "_count",
+        "type": "uint256"
+      }
+    ],
+    "name": "getAlarmList",
+    "outputs": [{
+      "components": [{
+          "name": "contractAddr",
+          "type": "address"
+        },
+        {
+          "name": "creatorAddr",
+          "type": "address"
+        },
+        {
+          "name": "idx",
+          "type": "uint256"
+        },
+        {
+          "name": "alarmType",
+          "type": "uint256"
+        },
+        {
+          "name": "begin",
+          "type": "uint256"
+        },
+        {
+          "name": "peroid",
+          "type": "uint256"
+        }
+      ],
+      "name": "",
+      "type": "tuple[]"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [{
+      "name": "_addr",
+      "type": "address"
+    }],
+    "name": "execute",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
