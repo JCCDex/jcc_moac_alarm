@@ -24,8 +24,8 @@
   </div>
 </template>
 <script>
-import contractRegister from "./alarm/contractRegister";
-import moacDeposit from "./alarm/moacDeposit";
+import contractRegister from "@/components/contractRegister";
+import moacDeposit from "@/components/moacDeposit";
 export default {
   name: "Main",
   components: {
