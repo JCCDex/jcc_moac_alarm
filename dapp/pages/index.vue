@@ -24,8 +24,8 @@
   </div>
 </template>
 <script>
-import contractRegister from "./alarm/contractRegister";
-import moacDeposit from "./alarm/moacDeposit";
+import contractRegister from "@/components/contractRegister";
+import moacDeposit from "@/components/moacDeposit";
 export default {
   name: "Main",
   components: {
@@ -43,10 +43,10 @@ export default {
     switchTab(currentView) {
       if (currentView === "contractRegister") {
         this.isActive = 0;
-        this.currentView = contractRegister
+        this.currentView = contractRegister;
       } else {
         this.isActive = 1;
-        this.currentView = moacDeposit
+        this.currentView = moacDeposit;
       }
     }
   }
