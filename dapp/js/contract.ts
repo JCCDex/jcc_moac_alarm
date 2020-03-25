@@ -55,7 +55,7 @@ export class AlarmContract extends SmartContract {
     if (!tpInfo.isConnected()) {
       hash = await super.moac.sendTransactionWithCallData(process.env.MOAC_SECRET, process.env.CONTRACT, amount, bytes, { gasLimit: 150000 });
     } else {
-      hash = await this.sendTransactionByTp(process.env.CONTRACT, amount, bytes, { gasLimit: 150000 });
+      hash = await this.sendTransactionByTp(process.env.CONTRACT, amount, bytes, { gasLimit: 170000 });
     }
     return hash;
   }
@@ -82,8 +82,8 @@ export class AlarmContract extends SmartContract {
    * @memberof AlarmContract
    */
   public async contractRegister(address: String): Promise<boolean> {
-    const abiItem = abi.find(item => item.name == "addContract");
-    const output = await super.callABI("addContract", address);
+    const abiItem = abi.find(item => item.name == "addClient");
+    const output = await super.callABI("addClient", address);
     const decodeData = abiCoder.decode(abiItem.outputs, output);
     return decodeData[0];
   }
