@@ -118,7 +118,7 @@ export class AlarmContract extends SmartContract {
         }
         const res = await tp.signMoacTransaction(tx);
         if (res && res.result) {
-            const hash = await super.moac.sendRawSignedTransaction(res.data);
+            const hash = await super.moac.sendSignedTransaction(res.data);
             return hash;
         } else {
             throw new Error(res.msg);
