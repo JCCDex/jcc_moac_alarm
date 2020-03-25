@@ -16,7 +16,8 @@ export default {
         content: process.env.npm_package_description || ""
       }
     ],
-    script: [{
+    script: [
+      {
         src: process.env.NODE_ENV === "development" ? "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js" : "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"
       },
       {
@@ -49,17 +50,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    "~/style/media.scss",
-    "~/style/button.scss",
-    "~/style/default.scss",
-    "~/style/base.scss",
-    "flex.css/dist/flex.css",
-    "~/style/layout.scss",
-    "~/style/scroll.scss",
-    "~/style/override-vant.scss",
-    "~/style/animation.scss"
-  ],
+  css: ["~/style/media.scss", "~/style/button.scss", "~/style/default.scss", "~/style/base.scss", "flex.css/dist/flex.css", "~/style/layout.scss", "~/style/scroll.scss", "~/style/override-vant.scss", "~/style/animation.scss"],
   /*
    ** Plugins to load before mounting the App
    */
