@@ -14,6 +14,7 @@
 import { moacWallet } from "jcc_wallet";
 import tpInfo from "@/js/tp";
 import AlarmContractInstance from "@/js/contract";
+import * as transaction from "@/js/transaction";
 import { Toast } from "vant";
 import scrollIntoView from "@/mixins/scrollIntoView";
 export default {
@@ -36,6 +37,8 @@ export default {
       try {
         const node = await tpInfo.getNode();
         const instance = AlarmContractInstance.init(node);
+        const hash = await instance.contractRegister(this.contractAddress);
+        console.log("contract register hash: ", hash);
         Toast.loading({
           duration: 0,
           forbidClick: true,
@@ -43,16 +46,20 @@ export default {
           message: this.$t("message.register_loading")
         });
         setTimeout(async () => {
-          const state = await instance.contractRegister(this.contractAddress);
-          console.log("contract register state: ", state);
-          if (state) {
-            Toast.success(this.$t("message.register_succeed"));
+           const res = await transaction.requestReceipt(hash);
+
+          if (res) {
+            if (transaction.isSuccessful(res)) {
+              Toast.success(this.$t("message.register_succeed"));
+            } else {
+              Toast.fail(this.$t("message.register_failed"));
+            }
           } else {
-            Toast.fail(this.$t("message.register_failed"));
+            Toast.fail(this.$t("message.request_receipt_failed"));
           }
-        }, 2000);
+        }, 20000);
       } catch (error) {
-        console.log("deposit error: ", error);
+        console.log("contract register error: ", error);
         Toast.fail(error.message);
       }
     }
