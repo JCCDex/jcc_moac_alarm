@@ -46,7 +46,7 @@ export default {
           message: this.$t("message.register_loading")
         });
         setTimeout(async () => {
-           const res = await transaction.requestReceipt(hash);
+          const res = await transaction.requestReceipt(hash);
 
           if (res) {
             if (transaction.isSuccessful(res)) {
